@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hug Day Surprise</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  margin-top: 120px;
+}
+
+h1 {
+  font-size: 45px;
+  color: white;
+  text-shadow: 0 0 15px red;
+}
+
+p {
+  font-size: 22px;
+  color: white;
+  margin-top: 20px;
+}
+
+button {
+  margin-top: 30px;
+  padding: 15px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  background-color: white;
+  color: #ff4e50;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #ff4e50;
+  color: white;
+}
+
+.heart {
+  position: absolute;
+  color: white;
+  font-size: 20px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1 id="title">🤗 Happy Hug Day Dadu 🤗</h1>
+  <button onclick="showHug()">Click for a Hug 💖</button>
+  <p id="message"></p>
+</div>
+
+<script>
+function showHug() {
+  document.getElementById("message").innerHTML =
+    "If I could, I would hug you right now and never let go ❤️<br><br>You are my safest place. Sending you the tightest virtual hug 🤍🤗";
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
